@@ -34,9 +34,9 @@ The application to be produced periodically reads the information that the smart
     ```
     {
      "message_id": "random-hash-code",
-     "device_id": "eenmalige-hash-code-vanuit-de-backend",
+     "device_id": "one-time-hash-code-from-the-backend",
      "device_status": "active | inactive",
-     "date": "systeem-datum-en-tijd",
+     "date": "system-date-and-time",
      "devices": [
           { 
                "serial_number":  "serie-nummer",
