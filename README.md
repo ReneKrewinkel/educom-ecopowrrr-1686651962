@@ -1,5 +1,7 @@
 # ECOPOWRRR
 
+Ecopowrrr is an energy supplier that offers 100% sustainable and renewable energy. They do this by purchasing the surplus that households generate with heat pumps and/or solar panels and then selling it to their customers.
+
 ### Requirements to run
 
 1. Synfomy (built on version 5.5.6)
@@ -19,7 +21,7 @@ The application to be produced periodically reads the information that the smart
     1. The app communicates with the backend via an API interface
     2. The app sends the customer's personal information (bank detail, zip code, and house number)
     3. [Named Link](https://postcode.tech/ "Postcode API") is used to collect the address and geo information
-    4. If the meter(how much he has already consumed) is included in the request, that is also processed by the backend
+    4. If the meter (yield/surplus) is included in the request, that is also processed by the backend
 
 2. Once the new customer is connected, message is send from the backend to the customer's device saying the application status is activated 
 
@@ -27,19 +29,19 @@ The application to be produced periodically reads the information that the smart
     1. This information can be but are not limited to:
         1. solar panel
         2. wind turbine
-        3. generator
+        3. pump
         4. etc...
     2. The device message follows the basic structure:
 
     ```
     {
      "message_id": "random-hash-code",
-     "device_id": "eenmalige-hash-code-vanuit-de-backend",
+     "device_id": "one-time-hash-code-from-the-backend",
      "device_status": "active | inactive",
-     "date": "systeem-datum-en-tijd",
+     "date": "system-date-and-time",
      "devices": [
           { 
-               "serial_number":  "serie-nummer",
+               "serial_number":  "serial_number",
                "device_type": "solar | pump | ...",
                "device_status": "active | inactive",
                "device_total_yield": "total-KwH-yield",
@@ -48,7 +50,7 @@ The application to be produced periodically reads the information that the smart
                "device_month_surplus": "surplus-KwH-active-month",
           },
           {
-               "serial_number":  "serie-nummer",
+               "serial_number":  "serial_number",
                "device_type": "solar | pump | ...",
                "device_status": "active | inactive",
                "device_total_yield": "total-KwH-yield",
@@ -67,4 +69,4 @@ The application to be produced periodically reads the information that the smart
         1. Turnover per year (profit made)
         2. Total of KwH purchased per year 
     2. Overview of total turnover (profit) of the current year with a forecast based on the past results (trend line)
-    3. Overview of total turnover, total revenue, and total surpluss per municipality
+    3. Overview of total turnover, total revenue, and total surplus per municipality

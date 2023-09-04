@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+
+{% block head %}
+    <title>{% block title %}Advisors{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="{{ asset('css/AdvisorStyle.css') }}" type="text/css" rel="stylesheet" />
+    {% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('js/advisor.js') }}" type="text/javascript"></script>
+    {% endblock %}
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="content">
+
+        <div class="intro">
+            <img src="{{ absolute_url(asset('imgs/rubics.jpg')) }}" alt="ECOPOWRRR!" />
+            <h1>Advisor</h1>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div class="prompt">
+                        <h1>Which task would you like to perform:</h1>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                {# Option to deactivate users #}
+                <div class="div_open col-sm-12 col-md-4" data-div="div-1">
+                    <span class="indicater" data-div="div-1" id="div-1"></span>
+                    <div class="card activation">
+                        <i class="fa-solid fa-user"></i>
+                        <p> Activate/Deactivate users </p>
+                    </div>
+                </div>
+                {# Option to get yearly revenue/profit #}
+                <div class="div_open col-sm-12 col-md-4" data-div="div-2">
+                    <span class="indicater" data-div="div-2" id="div-2"></span>
+                    <div class="card revenue">
+                        <p> Yearly revenue/profit</p>
+                        <svg viewBox="0 0 100 100">
+                            {# Axis of graph #}
+                            <line x1="5" y1="4" x2="5" y2="95"></line>
+                            <line x1="5" y1="5" x2="95" y2="5"></line>
+
+                            {# TrendLine #}
+                            <polyline points="5,5 25,65 35,45 55,55" />
+                            <line class="dotted" x1="55" y1="55" x2="65" y2="85"></line>
+                            
+                            <circle cx="54.9" cy="55.2" r=".75"/>
+                        </svg>
+                        <i class="fa-solid fa-money-check-dollar"></i>
+                    </div>
+
+                </div>
+
+                {# Option to get all active customers #}
+                <div class="div_open col-sm-12 col-md-4" data-div="div-3">
+                    <span class="indicater" data-div="div-3" id="div-3"></span>
+                    <div class="card customers">
+                        <i class="fa-solid fa-person person1"></i>
+                        <i class="fa-solid fa-person person2"></i>
+                        <i class="fa-solid fa-person person3"></i>
+                        <i class="fa-solid fa-person person4"></i>
+                        <p> all active customers </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="details-container active" id="activation">
+            <div class="switch-border">
+                <div class="switch">
+                    <div class="window">
+                        <div class="bg"></div>
+                    </div>
+                <p class="active" id="start">Activate</p>
+                <p class="" id="end">Deactivate</p>
+            </div>
+            </div>
+        </div>
+
+        <div class="details-container" id="revenue">
+            <div class="switch">
+                <p>Activate</p>
+                <p>Deactivate</p>
+            </div>
+        </div>
+
+        <div class="details-container" id="customers">
+            <div class="switch">
+                <span></span>
+                <p class="active">Activate</p>
+                <p>Deactivate</p>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

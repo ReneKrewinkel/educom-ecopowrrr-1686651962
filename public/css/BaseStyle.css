@@ -1,0 +1,41 @@
+:root {
+    --light_grey: 224, 222, 202;
+    --beige: 252, 249, 198;
+    --dark_beige: 255, 217, 202;
+    --yellow: 199, 211, 111;
+    --green: 149, 193, 31;
+    --dark_green: 58, 170, 53;
+    --solar: 255, 254, 51;
+    --wind: 204, 243, 255;
+    --water: 35, 137, 218;
+    --bio: 76, 75, 22;
+}
+
+@font-face {
+    font-family: titleFont;
+    src: url(../fonts/nexa-heavy-webfont.woff);
+}
+
+html { font-size: 75%; }
+
+body{
+    font-family: Sans-serif; 
+    font-size: 1rem;
+    background-color: rgb(var(--beige));
+}
+
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; 
+}
+
+.content{
+    display: block;
+    width: 100%;
+    height: fit-content;
+}

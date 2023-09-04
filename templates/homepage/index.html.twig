@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+
+    {% block title %}Ecopowrrr{% endblock %}
+
+    {% block stylesheets %}
+        <link href="{{ asset('css/HomeStyle.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('css/charts.min.css') }}" type="text/css" rel="stylesheet" />
+    {% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('js/graph.js') }}" type="text/javascript"></script>
+    {% endblock %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class= "content">
+    
+    <div class="intro">
+        <img src="{{ absolute_url(asset('imgs/solar.jpg')) }}" alt="ECOPOWRRR!" />
+        <div class="info">
+            <img class="logo" src="{{ absolute_url(asset('imgs/slogo.svg')) }}" alt="small logo"/>
+            <p>EC</p> 
+            <p class = "special">O</p> 
+            <p>for a better planet</p>
+        </div>
+    </div>
+    
+
+    <div class= "content-container">
+        <div class= "graphs">
+            <div class= "graphbox">
+                <figure class="pie">
+                    <svg viewBox="0 0 63.6619772368 63.6619772368">
+                        <circle id="circle" class="pie1" cx="31.8309886184" cy="31.8309886184" r="15.9154943092"/>
+                        <circle id="circle" class="pie2" cx="31.8309886184" cy="31.8309886184" r="15.9154943092"/>
+                        <circle id="circle" class="pie3" cx="31.8309886184" cy="31.8309886184" r="15.9154943092"/>
+                        <circle id="circle" class="pie4" cx="31.8309886184" cy="31.8309886184" r="15.9154943092"/>
+                    </svg>
+                </figure>
+                <div class= "tablecontents">
+                    <div class= "entry solar">
+                        <span></span>
+                        <p> solar </p>
+                    </div>
+                    <div class= "entry wind">
+                        <span></span>
+                        <p> wind </p>
+                    </div>
+                    <div class= "entry hydro">
+                        <span></span>
+                        <p> hydro </p>
+                    </div>
+                    <div class= "entry biomass">
+                        <span></span>
+                        <p> biomass </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class= "graphbox">
+                <table class="charts-css column show-labels multiple show-4-secondary-axes show-data-on-hover data-spacing-20" id="column-graph">
+                    <caption> Descriptive Chart Heading </caption>
+                    <tr>
+                        <th scope="row"> 2022 </th>
+                        <td style="--size: calc( 20 / 100 )"> <span class="data"> $20K </span> </td>
+                        <td style="--size: calc( 40 / 100 )"> <span class="data"> $40K </span> </td>
+                        <td style="--size: calc( 50 / 100 )"> <span class="data"> $50K </span> </td>
+                        <td style="--size: calc( 33 / 100 )"> <span class="data"> $33K </span> </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> 2021 </th>
+                        <td style="--size: calc( 35 / 100 )"> <span class="data"> $35K </span> </td>
+                        <td style="--size: calc( 40 / 100 )"> <span class="data"> $65K </span> </td>
+                        <td style="--size: calc( 15 / 100 )"> <span class="data"> $15K </span> </td>
+                        <td style="--size: calc( 77 / 100 )"> <span class="data"> $77K </span> </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <div class= "about-us">
+            <img src="{{ absolute_url(asset('imgs/worker.jpg')) }}" alt="worker"/>
+            <span class="circle"></span>
+            <div class="info">
+                <h1> ABOUT US <span></span></h1>
+                <p>Laborum aliquip veniam non proident ea sit anim amet veniam minim est sit qui. Veniam magna excepteur anim non. Ipsum eiusmod eiusmod in fugiat ut voluptate elit veniam ad esse id sint qui ipsum. Nisi aliquip labore deserunt eiusmod enim minim et commodo ad aute esse sit.</p>
+                <p>Anim adipisicing quis eu dolor amet aute magna cillum eu minim voluptate eu. In culpa cupidatat aliqua consectetur id quis. Minim in cillum cupidatat adipisicing dolor qui. Tempor ut culpa sit incididunt nisi labore incididunt exercitation. Do occaecat aliquip non occaecat laboris eu ipsum enim est enim. Ad mollit velit deserunt cillum amet occaecat do cupidatat ullamco duis deserunt ullamco nostrud. Enim excepteur do nostrud exercitation proident sunt proident id incididunt.</p>
+            </div>
+        </div>
+
+        <div class="projects-container">
+            <h1>PROJECTS</h1>
+            <div class="content">
+
+                <div class="project">
+                    <img src="{{ absolute_url(asset('imgs/dam.jpg')) }}" alt="project"/>
+                    <div class="info">
+                        <h2 class="title">Power</h2>
+                        <h3 class="subtitle">Hydro</h3>
+                        <p>Eiusmod labore eu et exercitation magna eiusmod nisi cupidatat proident tempor ullamco est velit exercitation. Do pariatur ex ullamco sit nostrud consectetur. Cupidatat irure Lorem esse adipisicing ad. Id enim duis amet Lorem minim ullamco aliqua dolore nostrud et labore officia proident. In sunt id ullamco tempor aliquip sunt et qui.</p>
+                        <button>Read More ></button>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <img src="{{ absolute_url(asset('imgs/wind.jpg')) }}" alt="project"/>
+                    <div class="info">
+                        <h2 class="title">Power</h2>
+                        <h3 class="subtitle">Wind</h3>
+                        <p>Eiusmod labore eu et exercitation magna eiusmod nisi cupidatat proident tempor ullamco est velit exercitation. Do pariatur ex ullamco sit nostrud consectetur. Cupidatat irure Lorem esse adipisicing ad. Id enim duis amet Lorem minim ullamco aliqua dolore nostrud et labore officia proident. In sunt id ullamco tempor aliquip sunt et qui.</p>
+                        <button>Read More ></button>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <img src="{{ absolute_url(asset('imgs/biomass.jpg')) }}" alt="project"/>
+                    <div class="info">
+                        <h2 class="title">Power</h2>
+                        <h3 class="subtitle">Biomass</h3>
+                        <p>Eiusmod labore eu et exercitation magna eiusmod nisi cupidatat proident tempor ullamco est velit exercitation. Do pariatur ex ullamco sit nostrud consectetur. Cupidatat irure Lorem esse adipisicing ad. Id enim duis amet Lorem minim ullamco aliqua dolore nostrud et labore officia proident. In sunt id ullamco tempor aliquip sunt et qui.</p>
+                        <button>Read More ></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

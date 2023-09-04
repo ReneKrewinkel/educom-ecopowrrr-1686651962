@@ -1,0 +1,376 @@
+    /* (1) INTRO */
+.intro{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+}
+
+.intro img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:100%;
+    height:100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.intro h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: titleFont;
+    font-size: 6vw;
+    color: #fff;
+}
+
+    /* (1) END INTRO */
+
+    /* (2) OPTIONS */
+
+    .container{
+        max-width: 100%;
+    }
+
+    .prompt{
+        position: relative;
+    }
+
+    .prompt h1{
+        margin: 20px;
+        padding: 20px;
+        text-align: center;
+        font-family: titleFont;
+        font-size: 50px;
+    }
+
+    .prompt span{
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 20%;
+        height: 10px;
+        background-image: linear-gradient(45deg, rgba(var(--green)), rgba(var(--dark_green)));
+        transform: translate(-50%, -50%);
+    }
+
+   .div_open{
+        overflow: hidden;
+    }
+
+    .indicater{
+        position: absolute;
+        left: 0;
+        bottom: -20%;
+        width: 100%;
+        height: 0%;
+        border-radius: 20px;
+        box-shadow: 2px 2px 2px solid black;
+        background-color: rgb(var(--dark_beige));
+        transition: 0.2s ease-in;
+    }
+
+    .indicater.active{
+        height: 120%;
+    }
+
+    /* (2.1) CARDS */
+
+.card{
+    position: relative;
+    width: 90%;
+    height: 400px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 3px 3px 5px #000;
+    background-image: linear-gradient(215deg, rgba(var(--green)), rgba(var(--dark_green)));
+    transition: 0.3s;
+}
+
+.card i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 160px;
+    transition: 0.3s;
+}
+
+.card p{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.card:hover{
+    background-color: #000;
+}
+
+.card:hover p, .card:hover i{
+    color: #fff;
+}
+
+    /* (2.1.1) ACTIVATION */
+.card.activation span{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 48%;
+    transition: 0.5s;
+}
+
+.card.activation .red{
+    bottom: 0;
+    background-color: #ED2B2A;
+}
+
+.card.activation .green{
+    top: 0;
+    background-color: #898121;
+}
+
+.card.activation:hover .red{
+    transform: translate(0%, -100%);
+}
+
+.card.activation:hover .green{
+    transform: translate(0%, 100%);
+}
+
+    /* (2.1.1) END ACTIVATION */
+
+    /* (2.1.2) REVENUE */
+
+.card.revenue:hover i{
+    opacity: 0.6;
+}
+
+    /* (2.1.2.1) REVENUE SVG */
+.card.revenue svg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotateX(180deg);
+}
+
+.card.revenue svg line{
+    stroke-dasharray: 0 100;
+    stroke-dashoffset: 0;
+    stroke-width: 2;
+    stroke: #1D5D9B;
+}
+
+.card.revenue:hover svg line{
+    animation: smooth 5s infinite;
+}
+
+.card.revenue svg line.dotted{
+    stroke-dasharray: 0 0 0 100;
+    stroke-dashoffset: 0;
+}
+
+.card.revenue:hover svg line.dotted{
+    animation: dotted 5s infinite;
+}
+
+.card.revenue svg polyline{
+    fill: none;
+    stroke: #1D5D9B;
+    stroke-width: 2;
+    stroke-dasharray: 0 100;
+}
+
+.card.revenue:hover svg polyline{
+    animation: smooth 5s infinite;
+}
+
+.card.revenue svg circle{
+    fill:rgba(0,0,0,0);
+    stroke-width: 1.5;
+    stroke-dasharray: 0,0,0,100;
+}
+
+.card.revenue:hover svg circle{
+    stroke: red;
+    animation: circle 5s infinite;
+}
+
+@keyframes smooth{
+    0% {stroke-dasharray: 0, 1000;}
+    75% {stroke-dasharray: 110 1000;}
+    100% {stroke-dasharray: 110 1000;}
+}
+
+@keyframes dotted{
+    0% {stroke-dasharray: 0, 0, 0, 0, 0, 100;}
+    70% {stroke-dasharray: 0, 0, 0, 0, 0, 100;}
+    100% {stroke-dasharray: 6, 5;}
+}
+
+@keyframes circle{
+    0% {stroke-dasharray: 0,0,0,100;}
+    25% {stroke-dasharray: 0,0,0,100;}
+    50% {stroke-dasharray: 0,0,0,100;}
+    75% {stroke-dasharray: 100;}
+    100% {stroke-dasharray: 100;}
+}
+
+    /* (2.1.2.1) END REVENUE SVG */
+
+    /* (2.1.2) END REVENUE */
+
+    /* (2.1.3) CUSTOMERS */
+
+    .card.customers{
+        background-color: rgb(208,185,151);
+    }
+
+    .card.customers:hover{
+        background-color: #000;
+    }
+
+    .card.customers i{
+        font-size: 60px;
+        transition: 0.5s ease-in;
+    }
+
+    .card.customers .person1{
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .card.customers .person2{
+        top: 60%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+    }
+
+    .card.customers .person3{
+        top: 60%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+    }
+
+    .card.customers .person4{
+        opacity: 0;
+        font-size: 100px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .card.customers:hover .person1{
+        opacity: 0;
+        transform: translate(-50%, 150%);
+    }
+
+    .card.customers:hover .person2{
+        opacity: 0;
+        transform: translate(400%, -100%);
+    }
+
+    .card.customers:hover .person3{
+        opacity: 0;
+        transform: translate(-400%, -100%);
+    }
+
+    .card.customers:hover .person4{
+        opacity: 1;
+    }
+
+    /* (2.1.3) END CUSTOMERS */
+
+    /* (2.1) END CARD */
+
+    /* (2.2) INFO */
+
+    .content .details-container{
+        display: block;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        background-color: rgb(var(--dark_beige));
+        transition: 0.3s;
+    }
+
+    .content .details-container.active{
+        height: 80vh;
+    }
+
+    .content .details-container .switch-border{
+        padding: 3px;
+        width: 200px;
+        height: 40px;
+        margin: 20px auto;
+        padding: 3px;
+        border-radius: 20px;
+        background: linear-gradient(215deg, rgba(var(--green)), rgba(var(--dark_green)));
+    }
+
+    .content .details-container .switch{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        border-radius: 20px;
+        transition: ease-out 0.3s;
+        background: rgb(var(--dark_beige));
+    }
+
+    .content .details-container .switch .window{
+        position: absolute;
+        left: -1px;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        border-radius: 20px;
+        overflow: hidden;   
+    }
+
+
+    .content .details-container .switch .window .bg{
+        position: absolute;
+        left: 0;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(215deg, rgba(var(--green)), rgba(var(--dark_green)));
+    }
+
+    .content .details-container .switch .window.right{
+        right: -1%;
+    }
+
+    .content .details-container .switch .window.right .bg{
+        right: 0;
+    }
+
+    .content .details-container .switch p{
+        padding: 0 10px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        transform: translate(0%, 20%);
+        color: rgb(var(--green));
+    }
+
+    .content .details-container .switch p.active{
+        color: #fff;
+    }
+
+    /* (2.2) END INFO */
+
+

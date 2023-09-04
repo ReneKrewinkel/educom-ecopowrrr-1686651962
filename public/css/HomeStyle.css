@@ -1,0 +1,439 @@
+/* (1) COVER */
+
+.intro{
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    z-index: 5;
+}
+
+.intro img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    object-fit: cover;
+}
+
+.intro .info{
+    position: absolute;
+    bottom: -100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    height: 200px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(252, 249, 198) , rgb(252, 249, 198));
+}
+
+.intro .info p{
+    font-family: titleFont;
+    font-size: 7vw;
+    font-weight: bold;
+    color: #000000;
+    z-index: 2;
+}
+
+.intro .info .special{
+    background-image: linear-gradient(225deg, rgb(var(--green)), rgb(var(--green)), rgb(var(--dark_green)),  rgb(var(--dark_green)));
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+    margin-right: 1.5rem;
+}
+
+.intro .info .logo{
+    position: absolute;
+    width: 40vw;
+    height: auto;
+    bottom: -15vw;
+    left: 35%;
+}
+
+/* END COVER */
+
+/* (2) DETAILS */
+
+.content-container{
+    position: relative;
+    padding-top: 100px;
+    z-index: 20;
+}
+
+.content-container .graphs{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 50px;
+    padding: 30px 50px;
+}
+
+.content-container .graphs .graphbox{
+    height: 400px;
+    width: 48%;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 30px;
+    background-image: linear-gradient(215deg, rgba(var(--green), 0.7), rgba(var(--dark_green), 0.7));
+}
+
+.content-container .graphs .graphbox .tablecontents{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    padding: 20px 40px;
+}
+
+.content-container .graphs .graphbox .tablecontents .entry{
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.content-container .graphs .graphbox .tablecontents .entry span{
+    min-width: 1vw;
+    height: 1vw;
+    margin-right: 3px;
+}
+
+.solar span{
+    background-color: rgb(var(--solar));
+}
+
+.wind span{
+    background-color: rgb(var(--wind));
+}
+
+.hydro span{
+    background-color: rgb(var(--water));
+}
+
+.biomass span{
+    background-color: rgb(var(--bio));
+}
+
+
+/* (2.1) PIE GRAPH ANIMATION */
+
+figure.pie {
+    display: block;
+    position: relative;
+    font-size:2vw;
+    font-size:1vw;
+    height: 300px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+figure.pie:hover{
+    opacity: 1;
+}
+
+.pie svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: visible;
+}
+
+.pie circle{
+    fill:rgba(0,0,0,0);
+    stroke-width:0;
+}
+
+.pie circle.active{
+    stroke-width: 31.8309886184;
+    stroke-dasharray: 0,0,0,100;
+    stroke-dashoffset: 25;
+}
+
+  /* 
+  pie1 : solar 
+  pie2 : wind
+  pie3 : hydro
+  pie4 : biomass
+  */
+
+.pie1.active { 
+    stroke:rgb(var(--solar));
+    animation: pie1 4s ease both;
+}
+.pie2.active {
+    stroke:rgb(var(--wind));
+    animation: pie2 4s ease both;
+}
+.pie3.active {
+    stroke:rgb(var(--water));
+    animation: pie3 4s ease both;
+}
+.pie4.active {
+    stroke: rgb(var(--bio));
+    animation: pie4 4s ease both;
+}
+  
+/* 1st pie is 40% */
+@keyframes pie1 {
+100% {stroke-dasharray: 30 70 0 0;}
+}
+/* 2nd pie is 30% */
+@keyframes pie2 {
+100% {stroke-dasharray: 0 30 40 30;}
+}
+/* 3rd pie is 30% */
+@keyframes pie3 {
+100% {stroke-dasharray: 0 60 30 0;}
+}
+/* 4th pie is 10% */
+@keyframes pie4 
+{
+100% {stroke-dasharray: 0 90 10 0;}
+}
+
+    /* END PIE GRAPH ANIMATION */
+
+    /* (2.2) BAR GRAPH ANIMATION */
+
+#column-graph{
+    --color-1: rgba(var(--solar), 0.4);
+    --color-2: rgba(var(--wind), 0.6);
+    --color-3: rgba(var(--water), 0.6);
+    --color-4: rgba(var(--bio), 0.4);  
+    transition-duration: 0.3s;
+}
+
+#column-graph:hover {
+    --color-1: rgba(var(--solar), 1);
+    --color-2: rgba(var(--wind), 1);
+    --color-3: rgba(var(--water), 1);
+    --color-4: rgba(var(--bio), 1);   
+}
+
+#column-graph.column {
+height: 300px;
+max-width: 90%;
+margin: 0 auto;
+}
+
+#column-graph.active tbody td{
+    transform-origin: bottom;
+    animation: revealing-bars 4s linear;
+}
+
+@keyframes revealing-bars {
+0%  { transform: scaleY( 0 ); }
+15% { transform: scaleY( 1 ); }
+}
+
+    /* END BAR GRAPH ANIMATION */
+
+    /* (2.3) ABOUT US */
+
+.about-us{
+position: relative;
+width: 100%;
+height: 500px;
+overflow: hidden;
+}
+
+.about-us img{
+position: absolute;
+bottom: -25vw;
+right: 0;
+height: auto;
+width: 55%;
+object-fit: fill;
+}
+
+.about-us .circle{
+position: absolute;
+left: 30%;
+top: -40%;
+height: 200%;
+width: 20%;
+border-radius: 50%;
+background-color: rgb(var(--beige));
+}
+
+.about-us .info{
+position: absolute;
+left: 0;
+top: 0;
+display: block;
+width: 40%;
+height: 100%;
+padding: 30px 20px;
+background-color: rgb(var(--beige));
+}
+
+.about-us .info h1{
+    position: relative;
+    min-width: fit-content;
+    width: 40%;
+    margin: 0 auto 20px auto;
+    padding-bottom: 20px;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 4rem;
+}
+
+.about-us .info h1 span{
+    position: absolute;
+    left: 15%;
+    bottom: 10px;
+    width: 70%;
+    height: 10px;
+    background-image: linear-gradient(45deg, rgba(var(--green)), rgba(var(--dark_green)));
+}
+
+.about-us .info p{
+    width: 110%;
+    text-align: left;
+    font-size: 1.5rem;
+    padding-bottom: 5px;
+}
+    /* END ABOUT US */
+
+   /* (2.4) PROJECTS */
+
+.projects-container{
+    display: block;
+    width: 100%;
+    padding: 30px;
+}
+
+.projects-container h1{
+    margin: 0 auto 20px auto;
+    min-width: fit-content;
+    width: 40%;
+    text-align: center;
+    font-family: titleFont;
+    font-size: 5rem;
+}
+
+.projects-container .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects-container .content .project{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    height: 500px;
+    margin: 0 2.5%;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px #306844;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+
+
+.projects-container .content .project img{
+    position: absolute;
+    min-width: 100%;
+    height: 100%;
+    width: auto;
+    object-fit: fill;
+}
+
+.projects-container .content .project .info{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0, 0.5);
+    transition: ease-in 0.6s;
+}
+
+.projects-container .content .project:hover .info{
+    height: 100%;
+}
+
+.projects-container .content .project .info h2{
+    margin: 20px 30px 0 30px;
+    font-size: 2rem;
+    color: lightgray;
+}
+
+.projects-container .content .project .info h3{
+    margin: 0 30px 0 30px;
+    font-size: 1.5rem;
+    color: darkcyan;
+}
+
+.projects-container .content .project .info p{
+    height: 65%;
+    margin: 20px 30px 0 30px;
+    font-size: 1rem;
+    color: rgb(250, 250, 250);
+}
+
+.projects-container .content .project .info button{
+    float: right;
+    margin: 20px 20px 0 0;
+    border: none;
+    font-size: 2.0rem;
+    color: #fff;
+    background-color: transparent;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.projects-container .content .project .info button:hover{
+    font-size: 2.1rem;
+    color: rgb(var(--green));
+}
+
+    /* END PROJECTS */
+
+    /* END DETAILS */
+
+    /* (3) MOBILE COMPALABILITY */
+
+@media only screen and (max-width: 600px){
+    .intro{
+        height: 35vh;
+    }
+
+    .details .graphs{
+        display: block;
+    }
+
+    .details .graphs .graphbox{
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .details .graphs .graphbox .tablecontents .entry p{
+        font-size: 2vw;
+    }
+
+    .projects-container .content{
+        display: block;
+    }
+
+    .projects-container .content .project{
+        width: 95%;
+        margin-bottom: 30px;
+    }
+
+    .projects-container .content .project img{
+        height: auto;
+        width: 100%;
+    }
+
+}
+
+  /* END MOBILE COMPALABILITY */
